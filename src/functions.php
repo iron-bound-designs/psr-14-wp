@@ -28,7 +28,7 @@ use Psr\EventDispatcher\StoppableEventInterface;
 function listen(callable $callable, int $priority = 10, string $prefix = EventDispatcher::DEFAULT_PREFIX): void
 {
     $class = ParameterDeriver::getParameterType($callable);
-    add_action($prefix . $class, static function (object $subject) use ($callable) {
+    \add_action($prefix . $class, static function (object $subject) use ($callable) {
         if ($subject instanceof StoppableEventInterface && $subject->isPropagationStopped()) {
             return;
         }

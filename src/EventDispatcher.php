@@ -60,6 +60,6 @@ class EventDispatcher implements EventDispatcherInterface
 
     protected function call(string $class, object $event): void
     {
-        do_action($this->prefix . $class, $event);
+        \do_action($this->prefix . $class, $event);
     }
 }
